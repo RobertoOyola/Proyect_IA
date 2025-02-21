@@ -7,10 +7,10 @@
 						<img class="m-ticket__header_logo" src="tecg.png" alt="Logo Institucional">
 					</div>
 					<div>
-						<img  class="m-ticket__header_img" [src]="response.image" alt="Foto del estudiante">
+						<img  class="m-ticket__header_img" [src]="usuario.image" alt="Foto del estudiante">
 					</div>
 					<div class="a-ticket__person">
-						<h3>{{ response.nombre }}</h3>
+						<h3>{{ usuario.nombre }}</h3>
 					</div>
 				</div>
 			</div>
@@ -26,7 +26,7 @@
 								<dt class="a-ticket__dTitle">Cedula:</dt>
 							</div>
 							<div class="col">
-								<dd class="a-ticket__dValue">{{response.cedula}}</dd>
+								<dd class="a-ticket__dValue">{{usuario.cedula}}</dd>
 							</div>
 						</div>
 						<div class="row">
@@ -34,7 +34,7 @@
 								<dt class="a-ticket__dTitle">Telefono:</dt>
 							</div>
 							<div class="col">
-								<dd class="a-ticket__dValue">{{response.telefono}}</dd>
+								<dd class="a-ticket__dValue">{{usuario.telefono}}</dd>
 							</div>
 						</div>
 						<div class="row">
@@ -42,7 +42,7 @@
 								<dt class="a-ticket__dTitle">Carrera:</dt>
 							</div>
 							<div class="col">
-								<dd class="a-ticket__dValue">{{response.carrera}}</dd>
+								<dd class="a-ticket__dValue">{{usuario.carrera}}</dd>
 							</div>
 						</div>
 						<div class="row">
@@ -50,7 +50,7 @@
 								<dt class="a-ticket__dTitle">Semestre:</dt>
 							</div>
 							<div class="col">
-								<dd class="a-ticket__dValue">{{response.semestre}}</dd>
+								<dd class="a-ticket__dValue">{{usuario.semestre}}</dd>
 							</div>
 						</div>
 						<div class="row">
@@ -58,7 +58,7 @@
 								<dt class="a-ticket__dTitle">Correo:</dt>
 							</div>
 							<div class="col">
-								<dd class="a-ticket__dValue_correo">{{response.correo}}</dd>
+								<dd class="a-ticket__dValue_correo">{{usuario.correo}}</dd>
 							</div>
 						</div>
 						<div class="row codes_container">
@@ -68,7 +68,7 @@
 										Cedula
 									</div>
 									<div class="col">
-										<qrcode class="col qr" [qrdata]="response.cedula" [width]="1" [scale]="4" [margin]="0" [errorCorrectionLevel]="'M'"></qrcode>
+										<qrcode class="col qr" [allowEmptyString]="true" [qrdata]="usuario.cedula" [width]="1" [scale]="4" [margin]="0" [errorCorrectionLevel]="'M'"></qrcode>
 									</div>
 								</div>
 							</div>			  
@@ -78,7 +78,7 @@
 										Matricula
 									</div>
 									<div class="col">
-										<qrcode class="col qr" [qrdata]="response.matricula" [width]="1" [scale]="4" [margin]="0" [errorCorrectionLevel]="'M'"></qrcode>
+										<qrcode class="col qr" [allowEmptyString]="true" [qrdata]="usuario.matricula" [width]="1" [scale]="4" [margin]="0" [errorCorrectionLevel]="'M'"></qrcode>
 									</div>
 								</div>
 							</div>

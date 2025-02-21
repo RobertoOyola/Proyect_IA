@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { ResponseCarnetDTO } from '../../models/inicioSesion';
 import JsBarcode from 'jsbarcode';
 import { FormsModule } from '@angular/forms';
@@ -11,20 +11,17 @@ import { QRCodeComponent } from 'angularx-qrcode';
   templateUrl: './carnet.component.html',
   styleUrl: './carnet.component.css'
 })
-export class CarnetComponent implements OnInit, AfterViewInit {
+export class CarnetComponent implements OnInit, OnChanges {
 
-  @Input() Usuario!: ResponseCarnetDTO;
-
-  response = this.Usuario;
-
-  ngAfterViewInit(): void {
-  }
+  @Input() usuario!: any;
 
   ngOnInit(): void {
-    console.log('cartnet', this.Usuario)
+    console.log('ngOnInit:', this.usuario);
   }
 
-
-
-
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['usuario']) {
+      console.log('usuario has changed:', changes['usuario'].currentValue);
+    }
+  }
 }

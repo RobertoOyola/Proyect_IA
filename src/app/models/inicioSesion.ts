@@ -12,3 +12,14 @@ export interface ResponseInicioSesionDTO{
     correo: string;
     image: string;
 }
+
+export interface ResponseCarnetDTO{
+    nombre: string;
+    correo: string;
+    image: string;
+    semestre: string;
+    carrera: string;
+    cedula: string;
+    matricula: string;
+    telefono: string;
+}

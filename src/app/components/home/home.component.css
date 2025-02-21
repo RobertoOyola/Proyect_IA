@@ -12,7 +12,7 @@ body {
 	align-items: center;
 	flex-direction: column;
 	font-family: 'Montserrat', sans-serif;
-	height: 100vh;
+	height: 80vh;
 	margin: -20px 0 50px;
 }
 
@@ -55,10 +55,15 @@ button {
 	letter-spacing: 1px;
 	text-transform: uppercase;
 	transition: transform 80ms ease-in;
+	transition: 0.5s;
 }
 
 button:active {
 	transform: scale(0.95);
+}
+
+button:hover{
+	background-color: lightgray;
 }
 
 button:focus {
@@ -99,7 +104,6 @@ input {
 	overflow: hidden;
 	width: 768px;
 	max-width: 100%;
-	min-height: 480px;
 	margin-top: 10%;
 	margin-bottom: 10%;
 }
@@ -109,4 +113,9 @@ input {
 	top: 0;
 	height: 100%;
 	transition: all 0.6s ease-in-out;
+}
+
+.buttons{
+	text-align: left;
+	padding-bottom: 2%;
 }

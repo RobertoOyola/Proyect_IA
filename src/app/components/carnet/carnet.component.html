@@ -12,13 +12,6 @@
 					<div class="a-ticket__person">
 						<h3>{{ response.nombre }}</h3>
 					</div>
-					<div>
-						<div class="m-ticket__codebar">
-							<div class="content">
-								<svg id="barcode" #barcode></svg>
-							  </div>			  
-						</div>
-					</div>
 				</div>
 			</div>
 			<div class="col">
@@ -30,75 +23,66 @@
 					<div>
 						<div class="row">
 							<div class="col-4">
-								<dt class="a-ticket__dTitle">Cedula</dt>
+								<dt class="a-ticket__dTitle">Cedula:</dt>
 							</div>
 							<div class="col">
-								<dd class="a-ticket__dValue">0925636391</dd>
+								<dd class="a-ticket__dValue">{{response.cedula}}</dd>
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-4">
-								<dt class="a-ticket__dTitle">Numero</dt>
+								<dt class="a-ticket__dTitle">Telefono:</dt>
 							</div>
 							<div class="col">
-								<dd class="a-ticket__dValue">0992940360</dd>
+								<dd class="a-ticket__dValue">{{response.telefono}}</dd>
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-4">
-								<dt class="a-ticket__dTitle">Carrera</dt>
+								<dt class="a-ticket__dTitle">Carrera:</dt>
 							</div>
 							<div class="col">
-								<dd class="a-ticket__dValue">Desarrollo de Software</dd>
+								<dd class="a-ticket__dValue">{{response.carrera}}</dd>
 							</div>
 						</div>
-					</div>
-
-					<div class="m-ticket__detailsRow">
-						<dl class="m-ticket__detail">
-							<dt class="a-ticket__detailTitle -hidden">Origin</dt>
-							<dd class="a-ticket__detailValue">Baltimore</dd>
-						</dl>
-						<dl class="m-ticket__detail">
-							<dt class="a-ticket__detailTitle -hidden">Destination</dt>
-							<dd class="a-ticket__detailValue">San Diego</dd>
-						</dl>
-					</div>
-					<div class="m-ticket__detailsRow">
-						<dl class="m-ticket__detail">
-							<dt class="a-ticket__detailTitle">Flight</dt>
-							<dd class="a-ticket__detailValue">2005</dd>
-						</dl>
-						<dl class="m-ticket__detail">
-							<dt class="a-ticket__detailTitle">Seat</dt>
-							<dd class="a-ticket__detailValue">11e</dd>
-						</dl>
-					</div>
-					<div class="m-ticket__detailsRow">
-						<dl class="m-ticket__detail">
-							<dt class="a-ticket__detailTitle">Date</dt>
-							<dd class="a-ticket__detailValue">15AUG21</dd>
-						</dl>
-						<dl class="m-ticket__detail">
-							<dt class="a-ticket__detailTitle">TIME</dt>
-							<dd class="a-ticket__detailValue">10:25AM</dd>
-						</dl>
-					</div>
-					<div class="m-ticket__detailsRow">
-						<dl class="m-ticket__detail">
-							<dt class="a-ticket__detailTitle -strong">Terminal</dt>
-							<dd class="a-ticket__detailValue">1</dd>
-						</dl>
-						<dl class="m-ticket__detail">
-							<dt class="a-ticket__detailTitle -strong">Gate</dt>
-							<dd class="a-ticket__detailValue">B3</dd>
-						</dl>
-					</div>
-					<div class="m-ticket__detailsRow">
-						<dl class="m-ticket__detail">
-							<dt class="a-ticket__detailTitle -hidden">Carrera</dt>
-							<dd class="a-ticket__detailValue">Desarrollo de Software</dd>
-						</dl>
+						<div class="row">
+							<div class="col-4">
+								<dt class="a-ticket__dTitle">Semestre:</dt>
+							</div>
+							<div class="col">
+								<dd class="a-ticket__dValue">{{response.semestre}}</dd>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-4">
+								<dt class="a-ticket__dTitle">Correo:</dt>
+							</div>
+							<div class="col">
+								<dd class="a-ticket__dValue_correo">{{response.correo}}</dd>
+							</div>
+						</div>
+						<div class="row codes_container">
+							<div class="col in_codes_container">
+								<div class="row">
+									<div class="col-2 text-v">
+										Cedula
+									</div>
+									<div class="col">
+										<qrcode class="col qr" [qrdata]="response.cedula" [width]="1" [scale]="4" [margin]="0" [errorCorrectionLevel]="'M'"></qrcode>
+									</div>
+								</div>
+							</div>			  
+							<div class="col in_codes_container">
+								<div class="row">
+									<div class="col-2 text-v">
+										Matricula
+									</div>
+									<div class="col">
+										<qrcode class="col qr" [qrdata]="response.matricula" [width]="1" [scale]="4" [margin]="0" [errorCorrectionLevel]="'M'"></qrcode>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>

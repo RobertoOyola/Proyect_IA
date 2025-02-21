@@ -1,0 +1,78 @@
+
+<div class="container" id="container">
+	<div class="form-container sign-up-container">
+		<form (submit)="guardarCambiosRegistrar()" [formGroup]="formRegister">
+			<h1>Crear Cuenta</h1>
+			<input type="text" placeholder="Nombre" formControlName="nombre"/>
+			<input type="email" placeholder="Correo" formControlName="correo"/>
+			<input type="password" placeholder="Contraseña" formControlName="contrasena"/>
+
+			<div class="photo-btn-register">
+				<button type="button" (click)="abrirModalRegisterCamara()">
+					<img src="camara.svg" width="24" height="24" alt="icon">
+					Tomar Foto
+				</button>
+			</div>
+
+			<div class="photo-register">
+				<img *ngIf="fotoRegister" [src]="fotoRegister" alt="Foto tomada" width="100" height="100">
+			</div>
+
+			<button type="submit" [disabled]="formRegister.invalid">Registrarse</button>
+		</form>
+	</div>
+
+	<div class="form-container sign-in-container">
+		<form (submit)="guardarCambiosLogin()" [formGroup]="formLogin">
+			<h1>Iniciar Sesión</h1>
+
+			<div class="btnInicio">
+				<button type="button" (click)="abrirModalLoginCamara()">
+					Inicio Biometrico
+				</button>
+			</div>
+
+			<span>O inicia con tus datos</span>
+
+			<input type="email" placeholder="Correo" formControlName="correo"/>
+			<input type="password" placeholder="Contraseña" formControlName="contrasena"/>
+
+			<button type="submit" [disabled]="formLogin.invalid">Inicio</button> 
+		</form>
+	</div>
+	
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-left">
+				<h1>Ya tiene cuenta?!</h1>
+				<p>Inicie Sesión para sus Beneficios</p>
+				<button class="ghost" id="signIn">Sign In</button>
+			</div>
+			<div class="overlay-panel overlay-right">
+				<img src="LOGO ISTLC (1).png" srcset="" alt="TecnoLogo" class="overlay-image">
+				<h1>Bienvenido!</h1>
+				<p>Ingrese su informacion para estudiar con nosotros</p>
+				<button class="ghost" id="signUp">¡Regístrate aquí!</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="modal" [class.show]="mostrarModalRegister">
+	<div class="modal-content">
+		<span class="close" (click)="cerrarModalRegisterCamara()">&times;</span>
+		<h2>Captura tu Foto</h2>
+		<video #videoCamara autoplay></video>
+		<button (click)="capturarFotoRegister()">Tomar Foto</button>
+	</div>
+</div>
+
+<div class="modal" [class.show]="mostrarModalLogin">
+	<div class="modal-content">
+		<span class="close" (click)="cerrarModalLoginCamara()">&times;</span>
+		<h2>Captura tu Foto</h2>
+		<video #videoCamara autoplay></video>
+		<button (click)="capturarFotoLogin()">Tomar Foto</button>
+	</div>
+</div>

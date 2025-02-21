@@ -1,0 +1,107 @@
+<div class="m-device">
+	<div class="m-ticket">
+		<div class="row">
+			<div class="col">
+				<div class="m-ticket__header">
+					<div>
+						<img class="m-ticket__header_logo" src="tecg.png" alt="Logo Institucional">
+					</div>
+					<div>
+						<img class="m-ticket__header_img" [src]="response.image" alt="Foto del estudiante">
+					</div>
+					<div class="a-ticket__person">
+						<h3>{{ response.nombre }}</h3>
+					</div>
+					<div>
+						<div class="m-ticket__codebar">
+							<div class="content">
+								<svg id="barcode" #barcode></svg>
+							  </div>			  
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<div class="m-ticket__details">
+			
+					<div class="a-ticket__title">
+						Estudiante
+					</div>
+					<div>
+						<div class="row">
+							<div class="col-4">
+								<dt class="a-ticket__dTitle">Cedula</dt>
+							</div>
+							<div class="col">
+								<dd class="a-ticket__dValue">0925636391</dd>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-4">
+								<dt class="a-ticket__dTitle">Numero</dt>
+							</div>
+							<div class="col">
+								<dd class="a-ticket__dValue">0992940360</dd>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-4">
+								<dt class="a-ticket__dTitle">Carrera</dt>
+							</div>
+							<div class="col">
+								<dd class="a-ticket__dValue">Desarrollo de Software</dd>
+							</div>
+						</div>
+					</div>
+
+					<div class="m-ticket__detailsRow">
+						<dl class="m-ticket__detail">
+							<dt class="a-ticket__detailTitle -hidden">Origin</dt>
+							<dd class="a-ticket__detailValue">Baltimore</dd>
+						</dl>
+						<dl class="m-ticket__detail">
+							<dt class="a-ticket__detailTitle -hidden">Destination</dt>
+							<dd class="a-ticket__detailValue">San Diego</dd>
+						</dl>
+					</div>
+					<div class="m-ticket__detailsRow">
+						<dl class="m-ticket__detail">
+							<dt class="a-ticket__detailTitle">Flight</dt>
+							<dd class="a-ticket__detailValue">2005</dd>
+						</dl>
+						<dl class="m-ticket__detail">
+							<dt class="a-ticket__detailTitle">Seat</dt>
+							<dd class="a-ticket__detailValue">11e</dd>
+						</dl>
+					</div>
+					<div class="m-ticket__detailsRow">
+						<dl class="m-ticket__detail">
+							<dt class="a-ticket__detailTitle">Date</dt>
+							<dd class="a-ticket__detailValue">15AUG21</dd>
+						</dl>
+						<dl class="m-ticket__detail">
+							<dt class="a-ticket__detailTitle">TIME</dt>
+							<dd class="a-ticket__detailValue">10:25AM</dd>
+						</dl>
+					</div>
+					<div class="m-ticket__detailsRow">
+						<dl class="m-ticket__detail">
+							<dt class="a-ticket__detailTitle -strong">Terminal</dt>
+							<dd class="a-ticket__detailValue">1</dd>
+						</dl>
+						<dl class="m-ticket__detail">
+							<dt class="a-ticket__detailTitle -strong">Gate</dt>
+							<dd class="a-ticket__detailValue">B3</dd>
+						</dl>
+					</div>
+					<div class="m-ticket__detailsRow">
+						<dl class="m-ticket__detail">
+							<dt class="a-ticket__detailTitle -hidden">Carrera</dt>
+							<dd class="a-ticket__detailValue">Desarrollo de Software</dd>
+						</dl>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

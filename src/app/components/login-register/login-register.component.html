@@ -5,18 +5,50 @@
 			<h1>Crear Cuenta</h1>
 			<input type="text" placeholder="Nombre" formControlName="nombre"/>
 			<input type="email" placeholder="Correo" formControlName="correo"/>
+			<input type="number" placeholder="Telefono" formControlName="telefono"/>
+			<input type="number" placeholder="Cedula" formControlName="cedula"/>
+			<input type="number" hidden placeholder="Matricula" formControlName="matricula"/>
 			<input type="password" placeholder="Contraseña" formControlName="contrasena"/>
 
-			<div class="photo-btn-register">
-				<button type="button" (click)="abrirModalRegisterCamara()">
-					<img src="camara.svg" width="24" height="24" alt="icon">
-					Tomar Foto
-				</button>
-			</div>
+			@if (!fotoRegister) {
+				<div class="photo-btn-register">
+					<button type="button" (click)="abrirModalRegisterCamara()">
+						<img src="camara.svg" width="24" height="24" alt="icon">
+						Tomar Foto
+					</button>
+				</div>
+			}@else {
+				<div class="row">
+					<div class="col-4">
+						<div class="photo-register">
+							<img *ngIf="fotoRegister" [src]="fotoRegister" alt="Foto tomada" width="100" height="100">
+						</div>
+					</div>
+					<div class="col ">
+						<div class="select-form">
+							<select class="form-select form-select-sm" aria-label="Small select example">
+								<option selected>Seleccione Carrera</option>
+								<option value="Desarrollo de Software">Desarrollo de Software</option>
+								<option value="Contabilidad">Contabilidad</option>
+								<option value="Accion Pastoral">Accion Pastoral</option>
+								<option value="Psicologia">Psicologia</option>
+							</select>
+						</div>
+						<div class="select-form">
+							<select class="form-select form-select-sm" aria-label="Small select example">
+								<option selected>Seleccione Semestre</option>
+								<option value="Primer Semestre">Primer Semestre</option>
+								<option value="Seguno Semestre">Seguno Semestre</option>
+								<option value="Tercer Semestre">Tercer Semestre</option>
+								<option value="Cuarto Semestre">Cuarto Semestre</option>
+								<option value="Quinto Semestre">Quinto Semestre</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			}
+			
 
-			<div class="photo-register">
-				<img *ngIf="fotoRegister" [src]="fotoRegister" alt="Foto tomada" width="100" height="100">
-			</div>
 
 			<button type="submit" [disabled]="formRegister.invalid">Registrarse</button>
 		</form>

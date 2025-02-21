@@ -38,7 +38,12 @@ export class LoginRegisterComponent implements AfterViewInit, OnInit {
       nombre: ['', Validators.required],
       correo: ['', [Validators.required, Validators.email]],
       contrasena: ['', [Validators.required, Validators.minLength(6)]],
-      image: ['', Validators.required]
+      image: ['', Validators.required],
+      semestre: ['', Validators.required],
+      carrera: ['', Validators.required],
+      cedula: ['', Validators.required, Validators.minLength(10)],
+      matricula: ['', Validators.required],
+      telefono: ['', [Validators.required, Validators.minLength(10)]]
     });
 
   }

@@ -26,31 +26,25 @@
 					</div>
 					<div class="col ">
 						<div class="select-form">
-							<select class="form-select form-select-sm" aria-label="Small select example">
-								<option selected>Seleccione Carrera</option>
-								<option value="Desarrollo de Software">Desarrollo de Software</option>
-								<option value="Contabilidad">Contabilidad</option>
-								<option value="Accion Pastoral">Accion Pastoral</option>
-								<option value="Psicologia">Psicologia</option>
+							<select class="form-select form-select-sm" formControlName="carrera" aria-label="Seleccione carrera">
+							  <option value="">Seleccione Carrera</option>
+							  <option *ngFor="let carrera of carreras" [value]="carrera">{{ carrera }}</option>
 							</select>
-						</div>
-						<div class="select-form">
-							<select class="form-select form-select-sm" aria-label="Small select example">
-								<option selected>Seleccione Semestre</option>
-								<option value="Primer Semestre">Primer Semestre</option>
-								<option value="Seguno Semestre">Seguno Semestre</option>
-								<option value="Tercer Semestre">Tercer Semestre</option>
-								<option value="Cuarto Semestre">Cuarto Semestre</option>
-								<option value="Quinto Semestre">Quinto Semestre</option>
+						  </div>
+						
+						  <div class="select-form">
+							<select class="form-select form-select-sm" formControlName="semestre" aria-label="Seleccione semestre">
+							  <option value="">Seleccione Semestre</option>
+							  <option *ngFor="let semestre of semestres" [value]="semestre">{{ semestre }}</option>
 							</select>
-						</div>
+						  </div>
 					</div>
 				</div>
 			}
 			
 
 
-			<button type="submit" [disabled]="formRegister.invalid">Registrarse</button>
+			<button type="submit">Registrarse</button>
 		</form>
 	</div>
 

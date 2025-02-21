@@ -21,6 +21,11 @@ export class LoginRegisterComponent implements AfterViewInit, OnInit {
   mostrarModalLogin: boolean = false;
   stream!: MediaStream;
 
+  carreras: string[] = ['Desarrollo de Software', 'Contabilidad', 'Acción Pastoral', 'Psicología'];
+  
+  semestres: string[] = ['Primer Semestre', 'Segundo Semestre', 'Tercer Semestre', 'Cuarto Semestre', 'Quinto Semestre'];
+
+
   router = inject(Router);
 
   resultRegistro!: RegistroDTO;
@@ -41,8 +46,8 @@ export class LoginRegisterComponent implements AfterViewInit, OnInit {
       image: ['', Validators.required],
       semestre: ['', Validators.required],
       carrera: ['', Validators.required],
-      cedula: ['', Validators.required, Validators.minLength(10)],
-      matricula: ['', Validators.required],
+      cedula: ['', Validators.required],
+      matricula: ['0123456789', Validators.required],
       telefono: ['', [Validators.required, Validators.minLength(10)]]
     });
 
@@ -51,6 +56,7 @@ export class LoginRegisterComponent implements AfterViewInit, OnInit {
   ngOnInit(): void {}
 
   guardarCambiosRegistrar(): void {
+    console.log(this.formRegister.value)
     if (this.formRegister.valid) {
       const RegisterDTO = this.formRegister.value as RegistroDTO
       console.log("Formulario enviado:", RegisterDTO);

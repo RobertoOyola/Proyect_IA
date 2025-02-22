@@ -1,7 +1,8 @@
 
 <div class="container" id="container">
 	<div>
-		<app-carnet></app-carnet>
+		<app-carnet *ngIf="Usuario" [Usuario]="Usuario"></app-carnet>
+
 	</div>
 	<div class="buttons">
 		<button (click)="regresasInicio()" class="btn btn-succes">Salir</button>

@@ -23,3 +23,7 @@ export interface ResponseCarnetDTO{
     matricula: string;
     telefono: string;
 }
+
+export interface CarnetDTO{
+    Usuario: ResponseCarnetDTO;
+}

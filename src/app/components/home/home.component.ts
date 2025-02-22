@@ -1,5 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { ResponseCarnetDTO } from '../../models/inicioSesion';
+import { CarnetDTO, ResponseCarnetDTO } from '../../models/inicioSesion';
 import { CommonModule } from '@angular/common';
 import { CarnetComponent } from '../carnet/carnet.component';
 import { Router } from '@angular/router';
@@ -15,10 +15,10 @@ export class HomeComponent implements OnInit {
 
   router = inject(Router);
 
-  Usuarios!: ResponseCarnetDTO;
+  Usuarios!: CarnetDTO;
 
   ngOnInit() {
-    this.Usuarios = history.state as ResponseCarnetDTO;
+    this.Usuarios = history.state as CarnetDTO;
   }
 
   regresasInicio() {

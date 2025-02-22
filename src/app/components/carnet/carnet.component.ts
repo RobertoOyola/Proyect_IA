@@ -21,11 +21,6 @@ export class CarnetComponent implements OnInit {
       console.log(this.Usuario);
     }
 
-    const usuarioJson = sessionStorage.getItem('usuario');
-      if (usuarioJson) {
-      } else {
-        console.log("No se encontró el usuario en sessionStorage.");
-      }
     }
   
 

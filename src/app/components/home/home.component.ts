@@ -22,6 +22,7 @@ export class HomeComponent implements OnInit {
   }
 
   regresasInicio() {
+    sessionStorage.removeItem('reloaded');
     this.router.navigate(['loginregister']);
   }
 }

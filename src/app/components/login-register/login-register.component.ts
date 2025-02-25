@@ -5,7 +5,6 @@ import { RegistroDTO } from '../../models/registro';
 import { InicioSesionBiometricoDTO, InicioSesionDTO, ResponseCarnetDTO, ResponseInicioSesionDTO } from '../../models/inicioSesion';
 import { Router } from '@angular/router';
 import { LoginService } from '../../services/login.service';
-import { HttpResponse } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -52,9 +51,9 @@ export class LoginRegisterComponent implements AfterViewInit, OnInit {
       image: ['', Validators.required],
       semestre: ['', Validators.required],
       carrera: ['', Validators.required],
-      cedula: ['', Validators.required],
-      matricula: ['0123456789', Validators.required],
-      telefono: ['', [Validators.required, Validators.minLength(10)]],
+      cedula: ['', [Validators.required, Validators.minLength(10), Validators.pattern('^[0-9]+$')]],
+      matricula: [''],
+      telefono: ['', [Validators.required, Validators.minLength(10), Validators.pattern('^[0-9]+$')]],
     });
 
   }
@@ -64,22 +63,37 @@ export class LoginRegisterComponent implements AfterViewInit, OnInit {
   }
 
 
+  validarNumeros(event: KeyboardEvent) {
+    const charCode = event.which ? event.which : event.keyCode;
+    if (charCode < 48 || charCode > 57) {
+      event.preventDefault();
+    }
+  }
+
+  
   guardarCambiosRegistrar(): void {
     if (this.formRegister.valid) {
         this.resultRegistro = this.formRegister.value as RegistroDTO;
+        this.resultRegistro.matricula="0123456789"
         console.log("Formulario enviado:", this.resultRegistro);
 
         this.service.crearRegistro(this.resultRegistro).subscribe(
             response => {
-                console.log("Registro exitoso:", response);
+              this.formRegister.reset();
+              this.fotoRegister = null;
+              this.toastr.success("Registro exitoso")
+              console.log("Registro exitoso:", response);
             },
             error => {
-                console.error("Error al registrar:", error);
+              this.toastr.error("Error al registrar", "Error");
+              console.error("Error al registrar:", error);
             }
         );
 
     } else {
         console.log("Formulario inválido");
+        console.log(this.formRegister)
+        this.toastr.warning("Formulario inválido");
     }
 }
 
@@ -97,7 +111,7 @@ export class LoginRegisterComponent implements AfterViewInit, OnInit {
             .subscribe((respuesta: ResponseCarnetDTO) => {
               if(respuesta){
                 this.resultLogin = respuesta;
-                this.toastr.success("Inicio Session Con Exito")
+                this.toastr.success("Inicio Session Con Exito");
                 this.router.navigate(['/home'], { state: { Usuario: this.resultLogin } });
               }else{
                 console.log("No se encontro el Usuario");
@@ -108,7 +122,7 @@ export class LoginRegisterComponent implements AfterViewInit, OnInit {
               console.error("Error en la petición:", error);
             });
     } else {
-      this.toastr.info("Formulario inválido");
+      this.toastr.warning("Formulario inválido");
       console.log("Formulario inválido");
     }
   }
@@ -213,4 +227,5 @@ export class LoginRegisterComponent implements AfterViewInit, OnInit {
       });
     }
   }
+  
 }

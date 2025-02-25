@@ -5,8 +5,8 @@
 			<h1>Crear Cuenta</h1>
 			<input type="text" placeholder="Nombre" formControlName="nombre"/>
 			<input type="email" placeholder="Correo" formControlName="correo"/>
-			<input type="number" placeholder="Telefono" formControlName="telefono"/>
-			<input type="number" placeholder="Cedula" formControlName="cedula"/>
+			<input type="text" (keypress)="validarNumeros($event)" placeholder="Telefono" formControlName="telefono"/>
+			<input type="text" (keypress)="validarNumeros($event)" placeholder="Cedula" formControlName="cedula"/>
 			<input type="number" hidden placeholder="Matricula" formControlName="matricula"/>
 			<input type="password" placeholder="Contraseña" formControlName="contrasena"/>
 

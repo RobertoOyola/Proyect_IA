@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChildren, QueryList, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RegistroDTO } from '../../models/registro';
-import { InicioSesionBiometricoDTO, InicioSesionDTO, ResponseCarnetDTO, ResponseInicioSesionDTO } from '../../models/inicioSesion';
+import { InicioSesionBiometricoDTO, InicioSesionDTO, LoginDTO, ResponseCarnetDTO, ResponseInicioSesionDTO } from '../../models/inicioSesion';
 import { Router } from '@angular/router';
 import { LoginService } from '../../services/login.service';
 import { ToastrService } from 'ngx-toastr';
@@ -187,10 +187,22 @@ export class LoginRegisterComponent implements AfterViewInit, OnInit {
     if (ctx) {
       ctx.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
       this.fotoLogin = canvas.toDataURL('image/png');
-      const datosBiometricos: InicioSesionBiometricoDTO = {
-        image: this.fotoLogin
-      };
-      console.log(datosBiometricos);
+      this.service.LoginBiometrico(this.fotoLogin).subscribe((response: LoginDTO) => {
+        if(response){
+          console.log(response)
+          this.formLogin.setValue({
+            correo: response.correo,
+            contrasena: response.contrasena
+          });
+          this.toastr.success("Inicio Biometrico con Exito!!!");
+        }else{
+          this.toastr.error("Ocurrió un error inesperado", "Error");
+        }
+      }, error => {
+        console.log(error);
+        const errorMessage = error.error?.error || "Ocurrió un error inesperado";
+        this.toastr.error(errorMessage, "Error");
+      })
     }
     
     this.cerrarModalLoginCamara();

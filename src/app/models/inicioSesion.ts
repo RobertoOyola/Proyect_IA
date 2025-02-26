@@ -27,3 +27,8 @@ export interface ResponseCarnetDTO{
 export interface CarnetDTO{
     Usuario: ResponseCarnetDTO;
 }
+
+export interface LoginDTO{
+    correo: string;
+    contrasena: string;
+}

@@ -7,3 +7,5 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 npm install angularx-qrcode --save
 npm install ngx-toastr --save
 npm install @angular/animations --save
+
+ng build --configuration production
